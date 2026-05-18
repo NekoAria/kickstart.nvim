@@ -118,6 +118,8 @@ do
   -- Don't show the mode, since it's already in the status line
   vim.o.showmode = false
 
+  require('custom.clipboard')
+
   -- Sync clipboard between OS and Neovim.
   --  Schedule the setting after `UiEnter` because it can increase startup-time.
   --  Remove this option if you want your OS clipboard to remain independent.
@@ -976,10 +978,7 @@ end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
-require('custom.clipboard')
-
 vim.g.neovide_title_background_color = string.format(
     "%x",
     vim.api.nvim_get_hl(0, {id=vim.api.nvim_get_hl_id_by_name("Normal")}).bg
 )
-
